@@ -5,6 +5,7 @@ body {
     font-family: 'Courier New', Courier, monospace;
     font-size: 1em;
     line-height: 1.5em;
+    text-align: center;
 }
 
 /* title */
@@ -18,6 +19,7 @@ body {
     font-weight: 600;
     margin-top: 80px;
     margin-bottom: 60px;
+    text-align: center;
 }
 
 /* main content */

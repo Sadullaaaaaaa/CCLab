@@ -1,79 +1,124 @@
 
-
-function setup(){
-    let canvas = createCanvas(800, 500);
-    canvas.parent("p5-canvas-Container");
-}
-var gray = [];
-var diameter = 20;
-var wormPos;
-var time;
-
 function setup() {
-  
-  createCanvas(800, 500);
-  
-
-  // Dormammu lines
-  for (var i = 1; i < width; i++) {
-    gray[i] = random(0, 255);
-  }
-
-  // wormd starting position
-  wormPos = createVector(width / 2, height / 2);
-  time = 0.0;
-  
+  let canvas = createCanvas(800, 500);
+  canvas.parent("p5-canvas-Container");
+  angleMode(DEGREES);
 }
 
-//DRAWWWWWWWW
 function draw() {
-  
-  background(220);
+  background(0); // Clear the background every frame
 
-  updateBackgroundLines();
+  // Draw the worm following the mouse
+  drawCreature(mouseX, mouseY, 200);
 
-  updateWorm();
- 
+  // Draw background lines
+  drawBackgroundLines();
+
+  // Draw the terrain
+  drawTerrain(); // Draw the near terrain
+  drawFarTerrain(); // Draw the far terrain
 }
-//Dormamu lines effect
-function updateBackgroundLines() {
-  for (var i = 0; i < gray.length; i++) {
-    gray[i] = (gray[i] + 1) % 205; //color change
-    stroke(gray[i]);
 
-    var lineOffset = sin(i + frameCount * 0.05) * 15; //ramki
-    line(i, 0 + lineOffset, i, height + lineOffset);
+function drawBackgroundLines() {
+  for (let x = 0; x < width; x += 4) {
+    let alpha = map(sin(x * 0.5 + frameCount * 2.0), -1, 1, 0, 255);
+    stroke(random(0, 100), alpha);
+    strokeWeight(random(1, 15));
+    line(x, 0, x, height);
   }
 }
-function updateWorm() {
-  stroke(0, 120);
-  strokeWeight(100);
-  
- 
 
+function drawTerrain() {
+  let startY = height - 70; // Base y-position of the near terrain
+  let amp = 80; // Amplitude of the sine wave (height of the peaks)
+  let freq = 0.32; // Frequency of the sine wave (space between peaks)
 
+  // Draw multiple sine waves to create a dune effect
+  for (let i = 0; i < 100; i++) { // More lines for denser dunes
+    let offsetY = i * random(1, 13); // Space between each line
+    stroke(200);
+    fill('gray');
 
-  ///NORMAL WORM
-
-  translate(width/2, height / 2);
-  // point(0, 0)
-
-  time += 0.01;
-
-  var step = 10,
-    radius = 200;
-
-  for (i = 0; i <= step; i++) {
-    var rad = (i / step + time) * 1;
-    //print(rad)
-    radius += sin(rad * 6) * 5;
-    point(cos(rad) * radius, sin(rad) * radius);
+    beginShape();
+    for (let x = 0; x <= width; x += 10) {
+      let y = startY + cos(x * freq + frameCount * 0.22) * amp + offsetY;
+      vertex(x, y);
+    }
+    endShape(); // Close the shape
   }
-  //MAIN CHARACTER
-  // rect(350, 400, 100, 100);//body
-  //ellipse(400, 370, 60,80);//head
-  //  rect(280, 400, 70, 30);//left hand
-  //  rect(255, 350, 30, 70);//left arm
+}
 
-  // Sketch of person from back
+// New function to draw far terrain
+function drawFarTerrain() {
+  let startY = height - 100; // Base y-position of the far terrain
+  let amp = 120; // Amplitude of the sine wave (smaller height for the far terrain)
+  let freq = 0.2; // Lower frequency for less dense waves
+
+  // Draw multiple sine waves for the far terrain
+  for (let i = 0; i < 50; i++) { // Fewer lines for less dense dunes
+    let offsetY = i * random(0, 10); // Space between each line
+    stroke(100); // Darker color for the far terrain
+    noFill();
+
+    beginShape();
+    for (let x = 0; x <= width; x += 10) {
+      let y = startY + sin(x * freq + frameCount * 0.1) * amp + offsetY;
+      vertex(x, y);
+    }
+    endShape(); // Close the shape
+  }
+}
+
+function drawCreature(x, y, rad) {
+  push();
+  translate(x, y);
+
+  fill("black");
+  stroke(100);
+  circle(0, 0, 430); // Outer circle of the worm
+
+  // Inner circles of the worm
+  for (let i = 0; i < 10; i++) {
+    let brightness = map(i, 0, 9, 80, 0); // Mouth darkness
+    let dia = map(i, 0, 9, rad * 2, rad / 2);
+    noStroke();
+    fill(brightness);
+    circle(0, 0, dia);
+  }
+
+  // Draw the teeth
+  drawTeeth(40, 180, 12, -0.05);
+  drawTeeth(80, 190, 18, 0.2);
+  drawTeeth(100, 200, 30, 0.1);
+
+  pop();
+}
+
+function drawTeeth(radIn, radOut, angleInc, rotSpd) {
+  push();
+  rotate(frameCount * rotSpd);
+
+  for (let angle = 0; angle < 360; angle += angleInc) {
+    // Inner position
+    let baseDist1 = radIn;
+    let pulse = sin(frameCount * 3 + angle * 12) * 30;
+    let radDist1 = baseDist1 + pulse;
+    let x1 = cos(angle) * radDist1;
+    let y1 = sin(angle) * radDist1;
+
+    // Outer positions
+    let radDist2 = radOut;
+    let thickness = 4;
+    let x2 = cos(angle - thickness) * radDist2;
+    let y2 = sin(angle - thickness) * radDist2;
+    let x3 = cos(angle + thickness) * radDist2;
+    let y3 = sin(angle + thickness) * radDist2;
+
+    fill(255);
+    stroke(0);
+    strokeWeight(2);
+    triangle(x1, y1, x2, y2, x3, y3);
+  }
+
+  pop();
 }
