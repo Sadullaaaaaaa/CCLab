@@ -48,7 +48,7 @@ class Sadullas_Dancer {
     this.isJumpingUp = true;
 
     this.armAngle = 0; // угол наклона
-    this.armWavingSpeed = 0.15; // armsss wave speed?
+    this.armWavingSpeed = 0.15; // armsss wave speed
   }
 
   update() {
@@ -77,9 +77,6 @@ class Sadullas_Dancer {
 
     // ******** //
     // ⬇️ draw your dancer from here ⬇️
-
-
-
     // ********BODY*******
     fill(150, 100, 255);
     noStroke();
