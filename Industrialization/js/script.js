@@ -54,7 +54,7 @@ class Particle {
     this.r = random(207);
     this.g = random(16);
     this.b = random(20, 90);
-    //this.lifetime = 207;// lifetime of the particles
+    this.lifetime = 207;// lifetime of the particles
   }
   move() {
     this.x += this.xSpeed;
@@ -69,7 +69,7 @@ class Particle {
     }
   }
   update() {
-    //this.lifetime -= 0.5;//fading away effect of the particles
+    this.lifetime -= 50;//fading away effect of the particles
   }
   display() {
     // particle's appearance
