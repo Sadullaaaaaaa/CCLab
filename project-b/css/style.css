@@ -11,15 +11,21 @@ p {
   padding: 0;
 }
 
-body {
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+.mea-culpa-regular {
+  font-family: "Mea Culpa", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
-h1,
-h2,
-h3 {
-  font-family: 'Times New Roman', Times, serif;
+
+#p5-canvas-container {
+  width: 100%;
+  /* background-color: lightsteelblue; */
+  margin-bottom: 20px;
 }
+
+
+
 
 canvas {
   display: block;
@@ -50,23 +56,23 @@ a:hover {
   /* background-color: cornflowerblue; */
   width: 500px;
   text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
 }
 
 .landing-page-title-box {
   /* background-color: aquamarine; */
-
-  font-size: 30px;
-
-  align-content: center;
-  padding-top: 20px;
-  padding-right: 30px;
-  padding-bottom: 30px;
-  padding-left: 80px;
-
-
-  background-color: aliceblue;
+  font-size: 40px;
+  font-family: "Mea Culpa", cursive;
+  font-weight: 400;
+  font-style: normal;
   position: relative;
-
+  padding-bottom: 30px;
 
 }
 
@@ -77,41 +83,76 @@ a:hover {
   margin-right: -400px;
   margin-top: 180px;
 
-  background-color: aliceblue;
+  background-color: burlywood;
+
 }
 
 .canvas-background {
   position: absolute;
   z-index: -1;
 
+  width: 100%;
+  /* background-color: lightsteelblue; */
+  margin-bottom: 20px;
+
+
 }
 
 .main-container {
+
+  display: flex;
+  align-items: center;
+  padding: 40px 20px;
+  text-align: center;
+  flex-direction: column;
   width: 800px;
   margin: 0 auto;
-  padding: 100px 50px;
+
+  font-family: "Mea Culpa", cursive;
+
 }
 
 .main-title-box {
   width: 100%;
-  text-align: center;
 
+  font-family: "Mea Culpa", cursive;
+  font-weight: 400;
+  font-size: 40px;
+
+  margin-top: 10px;
   margin-bottom: 30px;
+
 }
 
 .main-description-box {
-  width: 100%;
 
-  margin: 30px 0;
+  text-align: center;
+  padding-bottom: 30px;
+  font-size: 15px;
+
+
+  font-family: "Mea Culpa", cursive;
+
 }
 
 .main-link-box {
-  width: 100%;
+
   position: absolute;
   text-align: center;
-  margin-top: 30px;
-  padding-left: 600px;
-  padding-top: 500px;
+  padding-left: 90px;
+  padding-top: 900px;
+  padding-bottom: 50px;
+
+}
+
+.main-link-bob {
+
+  position: absolute;
+  text-align: center;
+
+  padding-left: 90px;
+  padding-top: 900px;
+  padding-bottom: 50px;
 
 }
 
@@ -131,17 +172,46 @@ a:hover {
   padding-left: 80px;
 }
 
-.piano-p5 {
-  padding-top: 200px;
-  padding-right: 30px;
-  padding-bottom: 200px;
-  padding-left: 200px;
+.piano-p {
+  background-color: aqua;
+  padding-left: 100px;
 }
 
 .description {
-  background-color: wheat;
+  background-color: whitesmoke;
 }
 
 .photo-piano {
-  size: 10px;
+  padding-top: 410px;
+  padding-left: 200px;
+}
+
+.library-link {
+  background-color: whitesmoke;
+
+  padding-left: 660px;
+
+}
+
+.photo-sheet {
+  padding-bottom: 200px;
+  padding-left: 400px;
+  padding-top: 10px;
+}
+
+.videotry {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-image {
+  background-image: url('wallpaper.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  font-family: Arial, sans-serif;
+
 }

@@ -5,6 +5,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mea+Culpa&display=swap" rel="stylesheet">
+
   <title>Project B</title>
 
   <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -17,22 +22,24 @@
     <div id="p5-canvas-container">
       <!-- p5 canvas will be appended here! -->
     </div>
-  </div>
 
+  </div>
 
 
   <div class="landing-page-container">
     <div class="landing-page-title-container">
-      <div class="landing-page-title-box">
-        <h1>Forgotten memories...</h1>
+      <div class="landing-page-title-box" , style=" background-image: url('assets/paper-ancient.png');">
+        <h1>Forgotten melodies...</h1>
       </div>
-      <div class="description">
+      <div class=" description">
         <h1>Life is full of emotions and feelings. Let's explore them through piano!</h1>
       </div>
 
-      <div class="landing-page-link-box">
-        <a href="page1.html">Explore!</a>
+
+      <div>
+        <a href="library.html">Go to Library</a>
       </div>
+
 
     </div>
   </div>
@@ -41,10 +48,17 @@
     <script src="js/background.js"></script>
   </div>
 
+  <!-- <video width="800" height="500" controls autoplay>
+    <source src="movie.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video> -->
 
 
-  <audio src="assets/yann.mp3" type="audio/mpeg" autoplay>
+  <audio autoplay>
+    <source src="assets/yann.mp3" type="audio/mp3">
     Your browser does not support the audio element.
+  </audio>
+
 
 </body>
 

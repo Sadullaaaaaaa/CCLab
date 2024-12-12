@@ -1,18 +1,14 @@
 // Particles Exercise Template
 
-let NUM_OF_PARTICLES = 35; // Decide the number of particles here.
+let NUM_OF_PARTICLES = 5; // Decide the number of particles here.
 let particles = [];
 
 let noteImageFiles = [
 
-    'assets/trebleclef.png',
-    'assets/trebleclef.png',
-    'assets/1.png',
-    'assets/1.png',
-    'assets/1.png',
 
-    'assets/2.png',
-    'assets/2.png',
+    'assets/1.png',
+    'assets/1.png',
+    'assets/1.png',
     'assets/3.png',
     'assets/3.png',
     'assets/4.png',
@@ -20,9 +16,8 @@ let noteImageFiles = [
     'assets/5.png',
     'assets/5.png',
     'assets/5.png', 'assets/5.png',
-    'assets/6.png',
-    'assets/6.png',
-    'assets/6.png',
+
+
     'assets/7.png',
     'assets/7.png',
     'assets/7.png',
@@ -69,7 +64,7 @@ class Particle {
         // properties
         this.x = x;
         this.y = y;
-        this.xSpd = random(-10, 10);
+        this.xSpd = random(-3, 3);
         this.ySpd = random(-3, 3);
         this.dia = 60;
         this.img = img;
